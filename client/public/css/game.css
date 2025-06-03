@@ -1,0 +1,23 @@
+/* Game-specific styles - e.g., for elements rendered via DOM inside the game area if any */
+
+/* Example: If you had player divs instead of canvas rendering for some reason */
+.player-airplane {
+    /* background-image: url('../assets/images/player_plane.png'); */
+    width: 50px; /* Example */
+    height: 50px; /* Example */
+    position: absolute; /* If rendered in DOM, managed by JS */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.projectile {
+    /* background-image: url('../assets/images/projectile.png'); */
+    width: 10px; /* Example */
+    height: 20px; /* Example */
+    position: absolute; /* If rendered in DOM, managed by JS */
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: yellow; */ /* Fallback for testing */
+}
+
+/* Add more specific styles for game elements, effects, etc. */

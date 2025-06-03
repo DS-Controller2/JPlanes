@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plane Game Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="ui-overlay">
+            <div id="menu-screen">
+                <h1>Plane Game</h1>
+                <input type="text" id="playerNameInput" placeholder="Enter your name">
+                <input type="text" id="sessionIdInput" placeholder="Enter Session ID (optional)">
+                <button id="joinGameButton">Join or Create Game</button>
+            </div>
+            <div id="waiting-screen" style="display: none;">
+                <h2>Waiting for players...</h2>
+                <p>Session ID: <span id="displaySessionId"></span></p>
+                <ul id="playerList"></ul>
+                <button id="readyButton">Ready</button>
+            </div>
+            <div id="hud" style="display: none;">
+                <div id="score">Score: 0</div>
+                <div id="health">Health: 100</div>
+                <div id="fps">FPS: 0</div>
+            </div>
+            <div id="gameOverScreen" style="display: none;">
+                <h2>Game Over</h2>
+                <p>Final Score: <span id="finalScore"></span></p>
+                <button id="playAgainButton">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="/socket.io/socket.io.js"></script> <!-- Served by Socket.IO server -->
+    <!-- <script src="js/lib/phaser.min.js"></script> --> <!-- If using Phaser -->
+
+    <!-- Game Scripts -->
+    <script src="js/network.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/playerControls.js"></script>
+    <script src="js/rendering.js"></script>
+    <script src="js/assetsLoader.js"></script>
+    <script src="js/game.js"></script>
+
+    <script>
+        // Initialize the game once the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            Game.init();
+        });
+    </script>
+</body>
+</html>
