@@ -135,8 +135,12 @@ const Rendering = {
         this.ctx.fillStyle = 'black';
         this.ctx.font = '12px Arial';
         this.ctx.textAlign = 'center';
-        //this.ctx.fillText(Game.state.players.find(p => p.airplane === airplane)?.name || '', screenX + planeWidth / 2, screenY - 15);
-
+        if (Game.state && Game.state.players) {
+            const ownerPlayer = Game.state.players.find(p => p.airplane === airplane);
+            if (ownerPlayer) {
+                this.ctx.fillText(ownerPlayer.name, screenX + planeWidth / 2, screenY - 15);
+            }
+        }
     },
 
     drawProjectile: function(projectile) {
